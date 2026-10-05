@@ -7,13 +7,18 @@ const vertex = /* glsl */ `
   varying vec2 vUv;
   void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
 
+const START_IN = 0.6;
+
 const fragment = /* glsl */ `
+  #define START_IN ${START_IN.toFixed(2)}
+
   uniform sampler2D tA;
   uniform sampler2D tB;
   uniform float uProgress;
   uniform float uTime;
   uniform float uAspect;
   uniform float uRadius;
+  uniform float uDir;      // 1: left → right, -1: right → left
   varying vec2 vUv;
 
   float hash(float n) { return fract(sin(n) * 43758.5453); }
@@ -21,12 +26,14 @@ const fragment = /* glsl */ `
 
   // x of the sweep line at height y (aspect units), slightly curved
   float frontAt(float y) {
-    float travel = mix(-uRadius * 2.2, uAspect + uRadius * 2.2, uProgress);
+    // starts with the brush already half on screen, so the first scroll shows it
+    float travel = mix(-uRadius * START_IN, uAspect + uRadius * 2.2, uProgress);
     return travel + sin(y * 2.4 + 0.6) * 0.06;
   }
 
   void main() {
-    vec2 p = vec2(vUv.x * uAspect, vUv.y);
+    // mirror the canvas for right-to-left sweeps so the maths stays the same
+    vec2 p = vec2((uDir > 0.0 ? vUv.x : 1.0 - vUv.x) * uAspect, vUv.y);
     float fx = frontAt(p.y);
     // bristle streaks along the direction of travel, plus a wobbly edge
     float streak = noise(p.y * 140.0) * 0.06 + noise(p.y * 22.0 + uTime) * 0.05;
@@ -44,7 +51,7 @@ const fragment = /* glsl */ `
     vec2 c = vec2(fx + uRadius * 0.15, 0.5 + sin(uProgress * 6.28318) * 0.18);
     vec2 d = p - c;
     float r = length(d);
-    float ang = atan(d.y, d.x) + uTime * 9.0;
+    float ang = atan(d.y, d.x) + uTime * 9.0 * uDir;
     // tufts of bristles: coarse radial streaks with jitter, darker toward the hub
     float tuft = noise(ang * 9.0 + floor(r * 30.0) * 1.7);
     float bristles = 0.35 + 0.65 * smoothstep(0.25, 0.85, noise(ang * 38.0 + r * 6.0) * 0.7 + tuft * 0.5);
@@ -68,7 +75,7 @@ export const BRUSH_RADIUS = 0.26;
 export function createSweep() {
   const uniforms = {
     tA: { value: null }, tB: { value: null },
-    uProgress: { value: 0 }, uTime: { value: 0 }, uAspect: { value: 1 }, uRadius: { value: BRUSH_RADIUS },
+    uProgress: { value: 0 }, uTime: { value: 0 }, uAspect: { value: 1 }, uRadius: { value: BRUSH_RADIUS }, uDir: { value: 1 },
   };
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ uniforms, vertexShader: vertex, fragmentShader: fragment, depthTest: false }));
   mesh.frustumCulled = false;
@@ -83,7 +90,7 @@ export function createSweep() {
     // same curve as the shader, in aspect units (x: 0..aspect, y: 0..1)
     frontAt(y, progress, aspect) {
       const r = uniforms.uRadius.value;
-      return -r * 2.2 + (aspect + r * 4.4) * progress + Math.sin(y * 2.4 + 0.6) * 0.06;
+      return -r * START_IN + (aspect + r * (2.2 + START_IN)) * progress + Math.sin(y * 2.4 + 0.6) * 0.06;
     },
     // portrait screens: shrink the brush so it doesn't swallow the whole width
     setAspect(aspect) {

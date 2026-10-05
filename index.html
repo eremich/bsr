@@ -17,31 +17,55 @@
 
   <header class="nav">
     <a class="brand" href="#top" aria-label="BSR Karriere">
-      <span class="logo" aria-hidden="true"><span>B</span><span>S</span><span>R</span></span>
+      <img class="logo" src="/bsr-logo.png" alt="" width="44" height="44" />
       <span>Karriere</span>
     </a>
     <a class="btn btn--small" href="#jobs">Jobs ansehen</a>
   </header>
 
   <!-- fixed copy layers that cross-fade with the sweep -->
-  <div class="copy copy--a" data-scene="a">
+  <div class="copy copy--a" data-scene="0">
     <p class="eyebrow">#TeamOrange</p>
     <h1 class="title">V<span>ORANGE</span>hen.</h1>
     <p class="lead">6.400 Menschen, über 60 Berufe, eine Stadt. Wir halten Berlin sauber — und machen dabei Platz für dich.</p>
     <p class="hint"><span>Maus bewegen: Wind</span><span>Scrollen: wir kehren</span></p>
   </div>
-  <div class="copy copy--b" data-scene="b">
+  <div class="copy copy--b" data-scene="1">
     <p class="eyebrow">Außen orange.</p>
     <h2 class="title">Innen <span>grün.</span></h2>
     <p class="lead">190 unserer Müllwagen fahren mit Biogas — gewonnen aus Berliner Bioabfall. Das spart rund 2,5 Millionen Liter Diesel im Jahr.</p>
     <a class="btn" href="#jobs">Werde Teil davon →</a>
   </div>
+  <div class="copy copy--light" data-scene="2">
+    <p class="eyebrow">Nichts geht verloren.</p>
+    <h2 class="title">Null <span>Verschwendung.</span></h2>
+    <p class="lead">Aus der Flasche wird ein Pulli, aus Bioabfall Biogas, aus Altem etwas Neues — im Recyclinghof, in der NochMall, im Kraftwerk. Scroll weiter und sieh zu.</p>
+  </div>
+  <div class="copy" data-scene="3">
+    <p class="eyebrow">#TeamOrange</p>
+    <h2 class="title">6.400 Menschen. <span>Ein Team.</span></h2>
+    <p class="lead">So vielfältig wie Berlin: über 60 Berufe, Azubis, Studis und Profis — und 44 Prozent Frauen in Führung.</p>
+  </div>
+  <div class="copy copy--light copy--final" data-scene="4">
+    <p class="eyebrow">Bereit?</p>
+    <h2 class="title">Zeit für deine <span>Kehrwende.</span></h2>
+    <ul class="perks">
+      <li><b>TVöD</b> Tarif &amp; Altersvorsorge</li>
+      <li><b>Unbefristet</b> in den allermeisten Fällen</li>
+      <li><b>30 Tage</b> Urlaub, 24. &amp; 31.12. frei</li>
+      <li><b>Mobil</b> BVG-Jobticket, Fahrrad-Leasing</li>
+    </ul>
+    <a class="btn btn--ink" href="#jobs">Jetzt bewerben →</a>
+  </div>
+
+  <div class="scroll-cue" data-scroll-cue aria-hidden="true">
+    <span>Scroll</span>
+    <i></i>
+  </div>
 
   <main id="top">
-    <section class="sweep-zone" data-sweep aria-label="Übergang"></section>
-    <section class="after" id="jobs">
-      <p>Skizze: Hero + Kehr-Übergang. Weitere Szenen folgen.</p>
-    </section>
+    <div class="track" data-track aria-hidden="true"></div>
+    <span id="jobs"></span>
   </main>
 
   <footer class="footer">

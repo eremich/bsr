@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BSR Karriere — Kehrwende (Konzept)</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Inoffizielles Konzept einer Karriereseite der Berliner Stadtreinigung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet" />
+  <style>html { background: #141416; }</style>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <canvas class="stage" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="BSR Karriere">
+      <span class="logo" aria-hidden="true"><span>B</span><span>S</span><span>R</span></span>
+      <span>Karriere</span>
+    </a>
+    <a class="btn btn--small" href="#jobs">Jobs ansehen</a>
+  </header>
+
+  <!-- fixed copy layers that cross-fade with the sweep -->
+  <div class="copy copy--a" data-scene="a">
+    <p class="eyebrow">#TeamOrange</p>
+    <h1 class="title">V<span>ORANGE</span>hen.</h1>
+    <p class="lead">6.400 Menschen, über 60 Berufe, eine Stadt. Wir halten Berlin sauber — und machen dabei Platz für dich.</p>
+    <p class="hint"><span>Maus bewegen: Wind</span><span>Scrollen: wir kehren</span></p>
+  </div>
+  <div class="copy copy--b" data-scene="b">
+    <p class="eyebrow">Außen orange.</p>
+    <h2 class="title">Innen <span>grün.</span></h2>
+    <p class="lead">190 unserer Müllwagen fahren mit Biogas — gewonnen aus Berliner Bioabfall. Das spart rund 2,5 Millionen Liter Diesel im Jahr.</p>
+    <a class="btn" href="#jobs">Werde Teil davon →</a>
+  </div>
+
+  <main id="top">
+    <section class="sweep-zone" data-sweep aria-label="Übergang"></section>
+    <section class="after" id="jobs">
+      <p>Skizze: Hero + Kehr-Übergang. Weitere Szenen folgen.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Inoffizielles Designkonzept. Nicht mit der BSR verbunden. Zahlen laut bsr.de.</p>
+    <p class="footer__author"><a href="https://ihor-yeromich.vercel.app/" target="_blank" rel="noopener">© 2026 Ihor Yeromich</a> · Design &amp; Code</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

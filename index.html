@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BSR Karriere — Schwere Klasse (Konzept)</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Inoffizielles Konzept einer Karriereseite der Berliner Stadtreinigung." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>html { background: #0e0f11; }</style>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <a class="skip" href="#jobs">Zu den Jobs springen</a>
+
+  <canvas class="stage" aria-hidden="true"></canvas>
+
+  <!-- technical callouts pinned to the 3D model -->
+  <div class="callouts" aria-hidden="true">
+    <div class="callout" data-callout="1"><span class="callout__dot"></span><span class="callout__line"></span><span class="callout__label">360°-Kamerasystem</span></div>
+    <div class="callout" data-callout="2"><span class="callout__dot"></span><span class="callout__line"></span><span class="callout__label">Kammschüttung · 1.100 l</span></div>
+    <div class="callout" data-callout="3"><span class="callout__dot"></span><span class="callout__line"></span><span class="callout__label">Pressplatte · Hydraulik</span></div>
+    <div class="callout" data-callout="4"><span class="callout__dot"></span><span class="callout__line"></span><span class="callout__label">Biogas · CNG-Antrieb</span></div>
+  </div>
+
+  <header class="nav">
+    <a class="nav__brand" href="#top" aria-label="BSR Karriere, Startseite">
+      <span class="logo" aria-hidden="true"><span>B</span><span>S</span><span>R</span></span>
+      <span class="nav__sub">Karriere</span>
+    </a>
+    <p class="nav__progress" aria-hidden="true"><span data-chapter-num>00</span> / 05 · <span data-chapter-name>Übersicht</span></p>
+    <a class="btn btn--small" href="#jobs">Jobs ansehen</a>
+  </header>
+
+  <main id="top" class="tour" data-tour>
+    <section class="chapter chapter--hero" data-name="Übersicht" aria-labelledby="hero-title">
+      <div class="chapter__panel">
+        <p class="eyebrow">BSR Karriere · Flotte</p>
+        <h1 class="hero__title" id="hero-title">Dein Arbeitsplatz wiegt <span>26 Tonnen.</span></h1>
+        <p class="lead">Hunderte Spezialfahrzeuge halten eine Stadt mit 3,8 Millionen Menschen am Laufen. Wer sie fährt, wartet und weiterentwickelt, arbeitet mit Technik, die man nicht jeden Tag zu sehen bekommt.</p>
+        <dl class="specs">
+          <div><dt>Gesamtgewicht</dt><dd>26<small>t</small></dd></div>
+          <div><dt>Achsen</dt><dd>3</dd></div>
+          <div><dt>Antrieb</dt><dd>CNG<small>/E</small></dd></div>
+        </dl>
+        <p class="hint"><span class="hint--fine">Ziehen zum Drehen · Scrollen für die Tour</span><span class="hint--touch">Wischen zum Drehen · Scrollen für die Tour</span></p>
+      </div>
+    </section>
+
+    <section class="chapter" data-name="Kabine" aria-labelledby="ch1-title">
+      <div class="chapter__panel">
+        <p class="chapter__num">01 — Kabine</p>
+        <h2 class="chapter__title" id="ch1-title">Cockpit statt Fahrersitz.</h2>
+        <p class="lead">Niederflur-Kabine mit Rundumsicht, Abbiegeassistent und Kameras auf jeder Seite. Du steuerst 26 Tonnen durch Kreuzberg — souverän und sicher.</p>
+        <dl class="specs specs--compact">
+          <div><dt>Sicht</dt><dd>360<small>°</small></dd></div>
+          <div><dt>Einstieg</dt><dd>1<small>Stufe</small></dd></div>
+        </dl>
+        <a class="role" href="#jobs"><span class="role__label">Dein Job</span><span class="role__name">Berufskraftfahrer:in</span><span class="role__note">Führerschein C/CE zahlen wir.</span></a>
+      </div>
+    </section>
+
+    <section class="chapter" data-name="Hubwerk" aria-labelledby="ch2-title">
+      <div class="chapter__panel">
+        <p class="chapter__num">02 — Hubwerk</p>
+        <h2 class="chapter__title" id="ch2-title">1.100 Liter in Sekunden.</h2>
+        <p class="lead">Die Kammschüttung greift die Tonne, hebt sie über die Kante und kippt sie in einem Zug. Sensorik, Hydraulik, Steuerung — alles muss auf den Punkt funktionieren.</p>
+        <a class="role" href="#jobs"><span class="role__label">Dein Job</span><span class="role__name">Kfz-Mechatroniker:in Nutzfahrzeuge</span><span class="role__note">Diagnose am Laptop, nicht nur am Schraubenschlüssel.</span></a>
+      </div>
+    </section>
+
+    <section class="chapter" data-name="Presse" aria-labelledby="ch3-title">
+      <div class="chapter__panel">
+        <p class="chapter__num">03 — Presse</p>
+        <h2 class="chapter__title" id="ch3-title">Hydraulik mit Gefühl.</h2>
+        <p class="lead">Die Pressplatte verdichtet den Inhalt, damit eine Tour mehr schafft und weniger fährt. Weniger Fahrten heißt weniger Verkehr und weniger Emissionen.</p>
+        <a class="role" href="#jobs"><span class="role__label">Dein Job</span><span class="role__name">Industriemechaniker:in</span><span class="role__note">Hydraulik, Pneumatik, Schweißtechnik.</span></a>
+      </div>
+    </section>
+
+    <section class="chapter" data-name="Antrieb" aria-labelledby="ch4-title">
+      <div class="chapter__panel">
+        <p class="chapter__num">04 — Antrieb</p>
+        <h2 class="chapter__title" id="ch4-title">Fährt mit dem, was Berlin wegwirft.</h2>
+        <p class="lead">Aus Bioabfall wird Biogas, aus Biogas Kraftstoff für die eigene Flotte. Dazu kommen immer mehr E-Fahrzeuge — mit Hochvolttechnik, die gewartet werden will.</p>
+        <a class="role" href="#jobs"><span class="role__label">Dein Job</span><span class="role__name">Elektroniker:in · Hochvolt</span><span class="role__note">Auch als Ausbildung.</span></a>
+      </div>
+    </section>
+
+    <section class="chapter chapter--end" id="jobs" data-name="Einsteigen" aria-labelledby="end-title">
+      <div class="chapter__panel">
+        <p class="chapter__num">05 — Einsteigen</p>
+        <h2 class="chapter__title" id="end-title">Steig ein.</h2>
+        <ul class="jobs">
+          <li><a href="#jobs"><span>Berufskraftfahrer:in C/CE</span><span>Fahrdienst</span></a></li>
+          <li><a href="#jobs"><span>Kfz-Mechatroniker:in Nutzfahrzeuge</span><span>Werkstatt</span></a></li>
+          <li><a href="#jobs"><span>Industriemechaniker:in</span><span>Werkstatt</span></a></li>
+          <li><a href="#jobs"><span>Elektroniker:in · Hochvolt</span><span>Technik</span></a></li>
+          <li><a href="#jobs"><span>Ausbildung Kfz-Mechatronik</span><span>Start 1. September</span></a></li>
+        </ul>
+        <a class="btn" href="#jobs">Alle Stellen ansehen <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Inoffizielles Designkonzept. Nicht mit der BSR verbunden.</p>
+    <p class="footer__author"><a href="https://ihor-yeromich.vercel.app/" target="_blank" rel="noopener">© 2026 Ihor Yeromich</a> · Design &amp; Code</p>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
